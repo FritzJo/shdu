@@ -6,15 +6,15 @@ if [ "$path" = "" ]; then
 fi
 
 dirs=$(find $path -maxdepth 1 -mindepth 1 -type d -printf '%f;')
-my_array=($(echo "$dirs" | tr ";" "\n"))
+directories=($(echo "$dirs" | tr ";" "\n"))
 
-for i in "${!my_array[@]}"; do
+for i in "${!directories[@]}"; do
   index=$i
-  disk=$(du -s $path/"${my_array[$index]}" | cut -d'/' -f1)
-  my_array[$index]="${my_array[$index]} $disk"
+  disk=$(du -s $path/"${directories[$index]}" | cut -d'/' -f1)
+  directories[$index]="${directories[$index]} $disk"
 done
 
-IFS=$'\n' sorted=($(sort -k2 -r -n <<<"${my_array[*]}"))
+IFS=$'\n' sorted=($(sort -k2 -r -n <<<"${directories[*]}"))
 unset IFS
 
 for i in "${sorted[@]}"; do
