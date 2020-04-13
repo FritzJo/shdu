@@ -5,6 +5,7 @@ shdu is a lightweight alternative to ncdu, written in bash. It currently only su
 
 ## Requirements
 * Bash
+* fzf
 
 ## Example
 ```bash

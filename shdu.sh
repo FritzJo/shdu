@@ -24,4 +24,11 @@ listdirs() {
   done
 }
 
-listdirs "$1"
+target=$1
+while true; do
+  next=$(listdirs "$target" | fzf | cut -f1)
+  target=$target/$next
+  if [ -z "$next" ]; then
+    exit 0
+  fi
+done
