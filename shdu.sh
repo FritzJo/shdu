@@ -1,5 +1,18 @@
 #!/bin/bash
 
+human_print(){
+while read B dummy; do
+  [ $B -lt 1024 ] && echo ${B} B && break
+  KB=$(((B+512)/1024))
+  [ $KB -lt 1024 ] && echo ${KB} KB && break
+  MB=$(((KB+512)/1024))
+  [ $MB -lt 1024 ] && echo ${MB} MB && break
+  GB=$(((MB+512)/1024))
+  [ $GB -lt 1024 ] && echo ${GB} GB && break
+  echo $(((GB+512)/1024)) TB
+done
+}
+
 listdirs() {
   path=$1
   if [ "$path" = "" ]; then
@@ -18,9 +31,9 @@ listdirs() {
   unset IFS
 
   for i in "${sorted[@]}"; do
-    i=$(echo "$i" | cut -d' ' -f1)
-    disk=$(du -sh $path/"$i" | cut -d'/' -f1)
-    printf '%s\t%s\n' "$i" "$disk"
+    currentdir=$(echo "$i" | cut -d' ' -f1)
+    disk=$(echo "$i" | cut -d' ' -f2 | human_print)
+    printf '%s\t%s\n' "$currentdir" "$disk"
   done
 }
 
