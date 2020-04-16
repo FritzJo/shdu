@@ -35,6 +35,7 @@ listdirs() {
     disk=$(echo "$i" | cut -d' ' -f2 | human_print)
     printf '%s\t%s\n' "$currentdir" "$disk"
   done
+  printf '%s\t%s\n' ".." "0"
 }
 
 target=$1
