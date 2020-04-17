@@ -1,8 +1,8 @@
 #!/bin/bash
 
 human_print(){
-while read B dummy; do
-  [ $B -lt 1024 ] && echo ${B} B && break
+while read B ; do
+  [ "$B" -lt 1024 ] && echo "${B}" B && break
   KB=$(((B+512)/1024))
   [ $KB -lt 1024 ] && echo ${KB} KB && break
   MB=$(((KB+512)/1024))
@@ -46,3 +46,4 @@ while true; do
     exit 0
   fi
 done
+
