@@ -33,14 +33,14 @@ listdirs() {
   for i in "${sorted[@]}"; do
     currentdir=$(echo "$i" | cut -d' ' -f1)
     disk=$(echo "$i" | cut -d' ' -f2 | human_print)
-    printf '%s\t%s\n' "$currentdir" "$disk"
+    printf '%s\t%s\n' "$disk" "$currentdir" #"$disk"
   done
-  printf '%s\t%s\n' ".." "0"
+  printf '%s\t%s\n' "0" ".."
 }
 
 target=$1
 while true; do
-  next=$(listdirs "$target" | fzf | cut -f1)
+  next=$(listdirs "$target" | fzf | cut -f2)
   target=$target/$next
   if [ -z "$next" ]; then
     exit 0
