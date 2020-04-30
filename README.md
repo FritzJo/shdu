@@ -9,10 +9,5 @@ shdu is a lightweight alternative to ncdu, written in bash. It currently only su
 
 ## Example
 ```bash
-./shdu ~/Projects
-
-Go      438M
-Python  292M
-C       1.3M
-Notes   40K
+TODO
 ```
