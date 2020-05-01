@@ -27,7 +27,7 @@ listdirs() {
     directories[$index]="${directories[$index]} $disk"
   done
 
-  IFS=$'\n' sorted=($(sort -k2 -r -n <<<"${directories[*]}"))
+  IFS=$'\n' sorted=($(sort -k2 -n <<<"${directories[*]}"))
   unset IFS
 
   for i in "${sorted[@]}"; do
