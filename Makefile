@@ -6,7 +6,7 @@ all:
 
 install:
 	@mkdir -p $(DESTDIR)$(PREFIX)/bin
-	@cp -p bashtop $(DESTDIR)$(PREFIX)/bin/shdu
+	@cp -p shdu $(DESTDIR)$(PREFIX)/bin/shdu
 	@mkdir -p $(DESTDIR)$(DOCDIR)
 	@cp -p README.md $(DESTDIR)$(DOCDIR)
 	@chmod 755 $(DESTDIR)$(PREFIX)/bin/shdu
