@@ -7,6 +7,10 @@ shdu is a lightweight alternative to ncdu, written in bash. It currently only su
 * Bash
 * fzf
 
+## Roadmap
+* Also show files
+* better error handling
+
 ## Example
 ```bash
 shdu ./.git
